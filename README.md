@@ -1,1 +1,3 @@
-# Browser.js \n\n ## Fast feature detection library for web apps
+# Browser.js 
+
+Fast feature detection library for web apps
