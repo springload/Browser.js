@@ -1,7 +1,7 @@
 window.Browser = (function(window){
     /**
      * Browser helper library for common things we need to know.
-     * Access via get method: Browser.get("clickEvent"); 
+     * Access via get method: Browser.get("clickEvent");
      * ----------------------------------------------------------------------------
      */
     var BrowserHelpers = {
@@ -97,7 +97,7 @@ window.Browser = (function(window){
     };
 
     /**
-     * Browser object 
+     * Browser object
      * ----------------------------------------------------------------------------
      */
     var Browser = {
@@ -176,7 +176,7 @@ window.Browser = (function(window){
                     document.documentElement.className += " " + res;
                 }
             }
-            document.documentElement.className.replace("no-js", "js");
+            document.documentElement.className.replace = document.documentElement.className.replace("no-js", "js");
         },
         runTest: function(testName){
             var self = this;
@@ -270,6 +270,9 @@ var Tests = (function(window, Browser){
         touchEvents: function() {
             return "ontouchstart" in window;
         },
+        noTouchEvents: function() {
+            return "ontouchstart" in window ? false : true;
+        },
         placeholders: function() {
             return ('placeholder' in document.createElement('input'));
         },
@@ -290,6 +293,23 @@ var Tests = (function(window, Browser){
             var hasFixed = test.offsetTop === 0 ? true : false;
             root.removeChild(test);
             return hasFixed;
+        },
+        sticky: function() {
+            var test = document.createElement('div');
+            var root = document.documentElement;
+            var hasSticky = false;
+            var vendors = ["webkit","moz","o",""];
+            for (var vendor in vendors) {
+                var val = (vendors[vendor] == "") ? "sticky" : "-"+vendors[vendor]+"-sticky";
+                test.style.position = val;
+                root.appendChild(test);
+                if(test.style.position === val) {
+                    hasSticky = true;
+                    break;
+                }
+                root.removeChild(test);
+            }
+            return hasSticky;
         },
         windowsPhoneMango: function() {
             return navigator.userAgent.match(/IEMobile9.0/) ? true : false;
