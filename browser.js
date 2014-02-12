@@ -176,7 +176,7 @@ window.Browser = (function(window){
                     document.documentElement.className += " " + res;
                 }
             }
-            document.documentElement.className.replace = document.documentElement.className.replace("no-js", "js");
+            document.documentElement.className = document.documentElement.className.replace("no-js", "js");
         },
         runTest: function(testName){
             var self = this;

@@ -1,6 +1,6 @@
 {
   "name": "Browser",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Springload's in-house feature detection API",
   "main": "browser.js",
   "keywords": [
