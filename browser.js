@@ -283,7 +283,7 @@ var Tests = (function(window, Browser){
         },
         mobile: function() {
             var userAgent = navigator.userAgent.toLowerCase();
-            return userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/) ? true : false;
+            return userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry)/i) ? true : false;
         },
         fixed: function() {
             var test = document.createElement('div');
